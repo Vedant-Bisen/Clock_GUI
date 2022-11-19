@@ -1,29 +1,27 @@
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
-import time
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import *
+import random
 
-
-class MyWindow(QMainWindow):
+class MainWindow(QMainWindow):
     def __init__(self):
-        super(MyWindow,self).__init__()
-        self.setGeometry(100, 1500, 500, 500)
-        self.setWindowTitle("Clock")
-        self.InitUI()
-        
-        
-
-    def InitUI(self):
-        pass
-        
-        
+        super(MainWindow,self).__init__()
+        self.setGeometry(1400,100,400,400)
+        self.setWindowTitle("This is the main file")
+        self.initUI()
     
+    def initUI(self):
+        pass
+
+
+
 
 def main():
-    app = QApplication(sys.argv)    
-    win = MyWindow()
+    app = QApplication(sys.argv)
+    win = MainWindow()
     win.show()
     sys.exit(app.exec_())
+
 
 if __name__ == '__main__':
     main()
