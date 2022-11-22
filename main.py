@@ -21,24 +21,28 @@ class MainWindow(QMainWindow):
 
         #Creating label
         self.label = QtWidgets.QLabel(self)
-        self.label.setGeometry(200, 150, 100, 50)
-
-        #Show current time button
-        self.showtime_button = QtWidgets.QPushButton(self)
-        self.showtime_button.setGeometry(200, 200, 100, 50)
-        self.showtime_button.setText("Show current time")
-        self.showtime_button.clicked.connect(self.showtime)
+        self.label.setGeometry(200, 200, 100, 50)
+        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setStyleSheet("border: 1px solid black;")
 
         #Creating a timer button
         self.timer_button = QtWidgets.QPushButton(self)
-        self.timer_button.setGeometry(200, 250, 100, 50)
-        self.timer_button.setText("Click for timer")
+        self.timer_button.setGeometry(200, 150, 100, 50)
+        self.timer_button.setText("Click to set time")
         self.timer_button.clicked.connect(self.get_seconds)
 
-        #Connecting timer to func
+        #Creating a start Button
+        self.start_button = QtWidgets.QPushButton(self)
+        self.start_button.setGeometry(200, 300, 100, 50)
+        self.start_button.setText("Click to Start")
+        self.start_button.clicked.connect(self.get_seconds)
+
+
+        #Connecting timer to showtime
         timer = QTimer(self)
         timer.timeout.connect(self.showtime)
         timer.start(100)
+
 
     def showtime(self):
         if self.start:
@@ -63,18 +67,6 @@ class MainWindow(QMainWindow):
             self.count = seconds * 100 
 
             self.label.setText(str(seconds))
-
-
-
-
-
-
-
-
-    def update(self):
-        self.label.adjustSize()
-
-
         
 
 
